@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/KheeFong283/FIT2179_DV2/refs/heads/main/data/male_female.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "transform": [
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "prisoners",
+                    "as": "total_prisoners"
+                }
+            ],
+            "groupby": [
+                "sex"
+            ]
+        },
+        {
+            "calculate": " datum.sex === 'male' ? 'Male' : datum.sex === 'female' ? 'Female' : datum.sex",
+            "as": "sex_renamed"
+        }
+    ],
+    "mark": {
+        "type": "arc",
+        "innerRadius": 60
+    },
+    "encoding": {
+        "theta": {
+            "field": "total_prisoners",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "sex_renamed",
+            "type": "nominal",
+            "title": "Sex",
+            "scale": {
+                "range": [
+                    "#ff69b4",
+                    "#1f77b4"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "sex_renamed",
+                "type": "nominal",
+                "title": "Sex"
+            },
+            {
+                "field": "total_prisoners",
+                "type": "quantitative",
+                "title": "Total prisoners"
+            }
+        ]
+    }
+}

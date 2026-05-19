@@ -1,0 +1,115 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Crime Ranking By State Over Time",
+        "fontSize": 18,
+        "subtitleFontSize": 12
+    },
+    "width": "container",
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/KheeFong283/FIT2179_DV2/refs/heads/main/data/crime_trend_by_state.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "transform": [
+        {
+            "calculate": "toNumber(datum.crimes)",
+            "as": "crimes_num"
+        },
+        {
+            "window": [
+                {
+                    "op": "rank",
+                    "as": "rank"
+                }
+            ],
+            "groupby": [
+                "year"
+            ],
+            "sort": [
+                {
+                    "field": "crimes_num",
+                    "order": "descending"
+                }
+            ]
+        }
+    ],
+    "mark": {
+        "type": "line",
+        "point": true
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+        },
+        "y": {
+            "field": "rank",
+            "type": "ordinal",
+            "title": "Crime Rank (1 = highest)"
+        },
+        "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State",
+            "scale": {
+                "range": [
+                    "#e6194b",
+                    "#4363d8",
+                    "#f58231",
+                    "#911eb4",
+                    "#46f0f0",
+                    "#f032e6",
+                    "#fabebe",
+                    "#ffd8b1",
+                    "#fffac8",
+                    "#a9a9a9",
+                    "#800000",
+                    "#000075",
+                    "#a9a9ff",
+                    "#ffb3e6"
+                ]
+            }
+        },
+        "opacity": {
+            "condition": {
+                "test": "indexof(['Selangor', 'Perlis'], datum.state) >= 0",
+                "value": 2
+            },
+            "value": 0.5
+        },
+        "size": {
+            "condition": {
+                "test": "indexof(['Selangor', 'Perlis'], datum.state) >= 0",
+                "value": 3
+            },
+            "value": 1
+        },
+        "tooltip": [
+            {
+                "field": "state",
+                "type": "nominal",
+                "title": "State"
+            },
+            {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "crimes_num",
+                "type": "quantitative",
+                "title": "Crimes",
+                "format": ","
+            },
+            {
+                "field": "rank",
+                "type": "ordinal",
+                "title": "Rank"
+            }
+        ]
+    }
+}
