@@ -8,7 +8,7 @@
     "width": "container",
     "height": 300,
     "data": {
-        "url": "data/gpi_asean.csv",
+        "url": "https://github.com/KheeFong283/FIT2179_DV2/blob/main/data/gpi_asean.csv",
         "format": {
             "type": "csv"
         }
