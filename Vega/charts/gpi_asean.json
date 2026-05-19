@@ -8,7 +8,7 @@
     "width": "container",
     "height": 300,
     "data": {
-        "url": "../data/gpi_asean.csv",
+        "url": "/FIT2179_DV2/Vega/data/gpi_asean.csv",
         "format": {
             "type": "csv"
         }
