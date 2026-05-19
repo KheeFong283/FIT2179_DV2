@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "../data/malaysia_crime_trend.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "transform": [
+        {
+            "aggregate": [
+                {
+                    "op": "mean",
+                    "field": "crimes",
+                    "as": "avg_crimes"
+                }
+            ]
+        },
+        {
+            "calculate": "'Average crime per year: ' + format(datum.avg_crimes, ',.0f')",
+            "as": "label"
+        }
+    ],
+    "mark": {
+        "type": "text",
+        "fontSize": 18
+    },
+    "encoding": {
+        "text": {
+            "field": "label"
+        }
+    }
+}
