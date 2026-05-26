@@ -1,0 +1,113 @@
+state,aspect,value
+Johor,rural_crime,13938.0
+Kedah,rural_crime,10996.0
+Kelantan,rural_crime,14969.0
+Melaka,rural_crime,4215.0
+Negeri Sembilan,rural_crime,5791.0
+Pahang,rural_crime,8528.0
+Perak,rural_crime,10479.0
+Perlis,rural_crime,1588.0
+Pulau Pinang,rural_crime,13672.0
+Sabah,rural_crime,17054.0
+Sarawak,rural_crime,15371.0
+Selangor,rural_crime,33094.0
+Terengganu,rural_crime,7749.0
+W.P. Kuala Lumpur,rural_crime,
+Johor,urban_crime,52025.0
+Kedah,urban_crime,32189.0
+Kelantan,urban_crime,10379.0
+Melaka,urban_crime,13765.0
+Negeri Sembilan,urban_crime,17601.0
+Pahang,urban_crime,13857.0
+Perak,urban_crime,23873.0
+Perlis,urban_crime,2431.0
+Pulau Pinang,urban_crime,22981.0
+Sabah,urban_crime,21890.0
+Sarawak,urban_crime,27765.0
+Selangor,urban_crime,125050.0
+Terengganu,urban_crime,7235.0
+W.P. Kuala Lumpur,urban_crime,
+Johor,total_crime,65963.0
+Kedah,total_crime,43185.0
+Kelantan,total_crime,25348.0
+Melaka,total_crime,17980.0
+Negeri Sembilan,total_crime,23392.0
+Pahang,total_crime,22385.0
+Perak,total_crime,34352.0
+Perlis,total_crime,4019.0
+Pulau Pinang,total_crime,36653.0
+Sabah,total_crime,38944.0
+Sarawak,total_crime,43136.0
+Selangor,total_crime,158144.0
+Terengganu,total_crime,14984.0
+W.P. Kuala Lumpur,total_crime,155402.0
+Johor,normalized_crimes,425.2303011158887
+Kedah,normalized_crimes,501.108158600123
+Kelantan,normalized_crimes,345.68911436598205
+Melaka,normalized_crimes,466.7220434015159
+Negeri Sembilan,normalized_crimes,503.0862206163838
+Pahang,normalized_crimes,342.79982542246995
+Perak,normalized_crimes,342.57791074545
+Perlis,normalized_crimes,371.11593333025536
+Pulau Pinang,normalized_crimes,524.08970995117
+Sabah,normalized_crimes,265.7885307717245
+Sarawak,normalized_crimes,410.8620903142234
+Selangor,normalized_crimes,585.2836668990994
+Terengganu,normalized_crimes,312.7889864208999
+W.P. Kuala Lumpur,normalized_crimes,1031.3105571925353
+Johor,stability,0.7129939848043766
+Kedah,stability,0.8038149033086874
+Kelantan,stability,0.7410679395460211
+Melaka,stability,0.7127230190309862
+Negeri Sembilan,stability,0.7321052199869741
+Pahang,stability,0.769630216544155
+Perak,stability,0.7927525517046827
+Perlis,stability,0.8252981995941965
+Pulau Pinang,stability,0.8188283000211265
+Sabah,stability,0.8118951114268995
+Sarawak,stability,0.8252998648403574
+Selangor,stability,0.7563012735969109
+Terengganu,stability,0.8270180854997398
+W.P. Kuala Lumpur,stability,0.6851889577471908
+Johor,crime_rank,3.0
+Kedah,crime_rank,4.0
+Kelantan,crime_rank,9.0
+Melaka,crime_rank,12.0
+Negeri Sembilan,crime_rank,10.0
+Pahang,crime_rank,11.0
+Perak,crime_rank,8.0
+Perlis,crime_rank,14.0
+Pulau Pinang,crime_rank,7.0
+Sabah,crime_rank,6.0
+Sarawak,crime_rank,5.0
+Selangor,crime_rank,1.0
+Terengganu,crime_rank,13.0
+W.P. Kuala Lumpur,crime_rank,2.0
+Johor,assault,27422.0
+Kedah,assault,14364.0
+Kelantan,assault,7784.0
+Melaka,assault,8656.0
+Negeri Sembilan,assault,10666.0
+Pahang,assault,8192.0
+Perak,assault,15402.0
+Perlis,assault,1612.0
+Pulau Pinang,assault,15204.0
+Sabah,assault,9148.0
+Sarawak,assault,12076.0
+Selangor,assault,71716.0
+Terengganu,assault,4634.0
+W.P. Kuala Lumpur,assault,38442.0
+Johor,property,104504.0
+Kedah,property,72006.0
+Kelantan,property,42912.0
+Melaka,property,27304.0
+Negeri Sembilan,property,36118.0
+Pahang,property,36578.0
+Perak,property,53302.0
+Perlis,property,6426.0
+Pulau Pinang,property,58102.0
+Sabah,property,68740.0
+Sarawak,property,74196.0
+Selangor,property,243883.0
+Terengganu,property,25334.0
+W.P. Kuala Lumpur,property,116960.0
