@@ -1,0 +1,334 @@
+/* ============================================================
+   Malaysia Crime Dashboard — Editorial Grid
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg:         #0f0f0d;
+    --bg-2:       #171713;
+    --bg-3:       #1e1e19;
+    --surface:    #242420;
+    --rule:       rgba(255,255,255,0.08);
+    --rule-strong:rgba(255,255,255,0.15);
+
+    --ink:        #f0ede6;
+    --ink-2:      #a09d96;
+    --ink-3:      #5c5a55;
+
+    --red:        #e05c3a;
+    --red-bg:     rgba(224,92,58,0.1);
+    --red-rule:   rgba(224,92,58,0.3);
+
+    --gold:       #c9a84c;
+    --gold-bg:    rgba(201,168,76,0.1);
+
+    --teal:       #3ab5a0;
+    --teal-bg:    rgba(58,181,160,0.08);
+
+    --dash-w:     1600px;
+    --col-gap:    1px;
+
+    --serif:      'Playfair Display', Georgia, serif;
+    --sans:       'DM Sans', sans-serif;
+    --mono:       'DM Mono', monospace;
+}
+
+body {
+    background: var(--bg);
+    font-family: var(--sans);
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ── Page header ──────────────────────────────────────── */
+.masthead {
+    width: var(--dash-w);
+    margin: 0 auto;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid var(--rule-strong);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+}
+
+.masthead-left .kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.masthead-left h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+}
+
+.masthead-right {
+    text-align: right;
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.8;
+}
+
+.masthead-right strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    letter-spacing: 1px;
+}
+
+/* ── Dashboard wrapper ────────────────────────────────── */
+.dash {
+    width: var(--dash-w);
+    margin: 0 auto;
+}
+
+/* ── Group divider ────────────────────────────────────── */
+.group-rule {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 0 14px;
+}
+
+.group-rule span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    white-space: nowrap;
+}
+
+.group-rule::after {
+    content: '';
+    height: 1px;
+    background: var(--rule);
+    display: block;
+}
+
+/* ════════════════════════════════════════════════════════
+   SECTION — multi-column grid card
+   ════════════════════════════════════════════════════════ */
+.section {
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    display: grid;
+    margin-bottom: var(--col-gap);
+}
+
+/* ── Column: meta (chapter + tag + title) ── */
+.col-meta {
+    padding: 24px 20px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.ch-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 1px;
+}
+
+.tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    width: fit-content;
+}
+
+.tag.red   { border-color: var(--red-rule);  color: var(--red);  background: var(--red-bg);  }
+.tag.gold  { border-color: rgba(201,168,76,0.4); color: var(--gold); background: var(--gold-bg); }
+.tag.teal  { border-color: rgba(58,181,160,0.35); color: var(--teal); background: var(--teal-bg); }
+
+.col-meta h2 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-top: 2px;
+}
+
+/* ── Column: intro ── */
+.col-intro {
+    padding: 24px 20px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.col-intro p {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+}
+
+/* ── Column: insights ── */
+.col-insights {
+    padding: 20px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.insight-heading {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.stat-block {
+    background: var(--bg-3);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--red);
+    padding: 10px 12px;
+    border-radius: 2px;
+}
+
+.stat-block .num {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.stat-block .label {
+    font-size: 11px;
+    color: var(--ink-2);
+    line-height: 1.4;
+}
+
+.stat-block.gold { border-left-color: var(--gold); }
+.stat-block.gold .num { color: var(--gold); }
+
+.stat-block.teal { border-left-color: var(--teal); }
+.stat-block.teal .num { color: var(--teal); }
+
+.insight-note {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    line-height: 1.55;
+    padding-top: 6px;
+}
+
+/* ── Column: chart ── */
+.col-chart {
+    padding: 16px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.col-chart > div { width: 100%; }
+
+.chart-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+}
+
+/* ════════════════════════════════════════════════════════
+   LAYOUT VARIANTS
+   ════════════════════════════════════════════════════════ */
+
+/* Standard: meta | intro | insights | chart */
+.section.std {
+    grid-template-columns: 170px 200px 200px 1fr;
+}
+
+/* Wide chart: meta | intro+insights merged | chart */
+.section.wide {
+    grid-template-columns: 170px 240px 1fr;
+}
+
+/* Full: meta | chart (no separate intro/insights col) */
+.section.hero {
+    grid-template-columns: 170px 1fr;
+}
+
+/* Split: meta | intro | chart | chart */
+.section.split {
+    grid-template-columns: 170px 200px 1fr 1fr;
+}
+
+/* Full-bleed chart row */
+.section.banner {
+    grid-template-columns: 1fr;
+}
+
+/* ── For .wide sections: merge intro+insight into one col ── */
+.col-intro-insights {
+    padding: 20px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.col-intro-insights p.body {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+}
+
+.divider-rule {
+    height: 1px;
+    background: var(--rule);
+}
+
+/* ── For .split sections: right chart has left border ── */
+.section.split .col-chart + .col-chart {
+    border-left: 1px solid var(--rule);
+}
+
+/* ── Banner inner padding ── */
+.section.banner .col-chart {
+    padding: 20px 24px;
+}
+
+/* ════════════════════════════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 3px; }
