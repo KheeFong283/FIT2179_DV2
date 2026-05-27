@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "14 waffle charts — Malaysia crime by state",
+  "height": 600,
+  "padding": 5,
+  "background": "white",
+
+  "data": [
+    {
+      "name": "raw",
+      "values": [
+        {"id":1, "state":"Selangor",         "type":"theft_vehicle_motorcycle","crimes":41558,"total":157455,"pct":26,"color":"#E63946","gx":290, "gy":4},
+        {"id":2, "state":"Johor",            "type":"theft_vehicle_motorcycle","crimes":22102,"total":65963, "pct":34,"color":"#E63946","gx":560, "gy":4},
+        {"id":3, "state":"W.P. Kuala Lumpur","type":"theft_other",            "crimes":20695,"total":77701, "pct":27,"color":"#4C9BE8","gx":830, "gy":4},
+        {"id":4, "state":"Sabah",            "type":"theft_other",            "crimes":16415,"total":38944, "pct":42,"color":"#4C9BE8","gx":1100,"gy":4},
+        {"id":5, "state":"Kedah",            "type":"theft_vehicle_motorcycle","crimes":15251,"total":43185, "pct":35,"color":"#E63946","gx":20,   "gy":230},
+        {"id":6, "state":"Sarawak",          "type":"theft_other",            "crimes":12476,"total":43136, "pct":29,"color":"#4C9BE8","gx":290, "gy":230},
+        {"id":7, "state":"Pulau Pinang",     "type":"theft_vehicle_motorcycle","crimes":11776,"total":36653, "pct":32,"color":"#E63946","gx":560, "gy":230},
+        {"id":8, "state":"Perak",            "type":"theft_vehicle_motorcycle","crimes":9804, "total":34352, "pct":29,"color":"#E63946","gx":830, "gy":230},
+        {"id":9, "state":"Kelantan",         "type":"theft_vehicle_motorcycle","crimes":8940, "total":25348, "pct":35,"color":"#E63946","gx":1100,"gy":230},
+        {"id":10,"state":"Negeri Sembilan",  "type":"theft_other",            "crimes":6694, "total":23392, "pct":29,"color":"#4C9BE8","gx":20,   "gy":456},
+        {"id":11,"state":"Pahang",           "type":"theft_other",            "crimes":6293, "total":22385, "pct":28,"color":"#4C9BE8","gx":290, "gy":456},
+        {"id":12,"state":"Melaka",           "type":"theft_vehicle_motorcycle","crimes":5214, "total":17980, "pct":29,"color":"#E63946","gx":560, "gy":456},
+        {"id":13,"state":"Terengganu",       "type":"theft_other",            "crimes":4221, "total":14984, "pct":28,"color":"#4C9BE8","gx":830, "gy":456},
+        {"id":14,"state":"Perlis",           "type":"theft_other",            "crimes":1394, "total":4019,  "pct":35,"color":"#4C9BE8","gx":1100,"gy":456}
+      ]
+    },
+    {
+      "name": "cells",
+      "source": "raw",
+      "transform": [
+        {"type": "formula", "expr": "sequence(0, 100)", "as": "cellRange"},
+        {"type": "flatten",  "fields": ["cellRange"], "as": ["cellIndex"]},
+        {"type": "formula", "expr": "datum.cellIndex % 10",           "as": "col"},
+        {"type": "formula", "expr": "9 - floor(datum.cellIndex / 10)","as": "row"},
+        {"type": "formula", "expr": "datum.cellIndex < datum.pct ? datum.color : '#E0E0E0'", "as": "fillColor"}
+      ]
+    }
+  ],
+
+  "marks": [
+
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x":      {"value": 0},
+          "y":      {"value": 0},
+          "width":  {"value": 300},
+          "height": {"value": 185},
+          "fill":   {"value": "#ffffff"}
+        }
+      }
+    },
+
+    {"type":"text","encode":{"enter":{"text":{"value":"What Drives Crime in"},"x":{"value":14},"y":{"value":28},"fontSize":{"value":20},"fontWeight":{"value":"bold"},"fill":{"value":"#111111"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"Each State?"},"x":{"value":14},"y":{"value":51},"fontSize":{"value":20},"fontWeight":{"value":"bold"},"fill":{"value":"#111111"}}}},
+
+    {"type":"text","encode":{"enter":{"text":{"value":"Motorcycle theft and other theft"},"x":{"value":14},"y":{"value":74},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"dominate crime across all states."},"x":{"value":14},"y":{"value":97},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"They form the largest share of"},"x":{"value":14},"y":{"value":120},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"all reported incidents statewide."},"x":{"value":14},"y":{"value":143},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"Crime is largely opportunistic"},"x":{"value":14},"y":{"value":166},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+    {"type":"text","encode":{"enter":{"text":{"value":"and property-driven in nature."},"x":{"value":14},"y":{"value":189},"fontSize":{"value":15},"fill":{"value":"#444444"}}}},
+
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "facetCells",
+          "data": "cells",
+          "groupby": ["id","state","gx","gy","type","pct","crimes","total","color"]
+        }
+      },
+      "encode": {
+        "enter": {
+          "x":      {"signal": "datum.gx"},
+          "y":      {"signal": "datum.gy"},
+          "width":  {"value": 300},
+          "height": {"value": 185}
+        }
+      },
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "text":       {"signal": "parent.state"},
+              "x":          {"value": 0},
+              "y":          {"value": 12},
+              "fontSize":   {"value": 12},
+              "fontWeight": {"value": "bold"},
+              "fill":       {"value": "#222222"}
+            }
+          }
+        },
+
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "text":     {"signal": "parent.type === 'theft_vehicle_motorcycle' ? 'Motorcycle Theft' : 'Theft Other'"},
+              "x":        {"value": 0},
+              "y":        {"value": 24},
+              "fontSize": {"value": 9},
+              "fill":     {"signal": "parent.color"}
+            }
+          }
+        },
+        
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "text":     {"signal": "parent.pct + '% · ' + parent.crimes + ' / ' + parent.total"},
+              "x":        {"value": 0},
+              "y":        {"value": 178},
+              "fontSize": {"value": 10},
+              "fill":     {"value": "#777777"}
+            }
+          }
+        },
+
+        {
+          "type": "rect",
+          "from": {"data": "facetCells"},
+          "encode": {
+            "enter": {
+              "x":            {"signal": "datum.col * 18"},
+              "y":            {"signal": "30 + (9 - datum.row) * 13"},
+              "width":        {"value": 15},
+              "height":       {"value": 11},
+              "cornerRadius": {"value": 2},
+              "fill":         {"field": "fillColor"}
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
