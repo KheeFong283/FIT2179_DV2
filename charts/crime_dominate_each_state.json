@@ -176,7 +176,7 @@
           "type": "text",
           "encode": {
             "enter": {
-              "text": {"signal": "parent.type === 'theft_vehicle_motorcycle' ? 'Motorcycle Theft' : 'Theft Other'"},
+              "text": {"signal": "parent.type === 'theft_vehicle_motorcycle' ? 'Motorcycle Theft' : 'Other Theft'"},
               "x": {"value": 0},
               "y": {"value": 25},
               "fontSize": {"value": 13},
